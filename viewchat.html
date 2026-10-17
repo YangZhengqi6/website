@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>HLTing</title>
+  <style type="text/css">
+    ::selection {
+      background: #0a9790;
+      color: #ffffff;
+    }
+    body{
+      background-color:  #180e25;
+    }
+    p{
+      font-family:Cascadia Mono;
+      color:#0a9790;
+    }
+    h1{
+      font-family:Cascadia Mono;
+      color:white;
+    }
+    a{
+      text-decoration: none;
+      font-family:Cascadia Mono;
+      color:#0a9790;
+    }
+    b{
+      font-family:Cascadia Mono;
+      color:#182a87;
+    }
+    c{
+      font-family:Cascadia Mono;
+      font-size: 15px;
+      color:#1e7ba9;
+    }
+    d{
+      font-family:Cascadia Mono;
+      font-size: 15px;
+      color:#ffffff;
+    }
+    button{
+      font-family:Cascadia Mono;
+      background: #22071c;
+      color:#0a9790;
+    }
+    input{
+      color:#d1ff05;
+    }
+    table{
+      font-family:Trebuchet MS;
+      background: #082c26;
+      color:#088c85
+    }
+    script{
+      color:#0a9790;
+    }
+    </style>
+</head>
+<body>
+<noscript><a style="color:red">ERROR:What the fuck!Your browser is too low!</a></noscript>
+  <a id="content"></a>
+  <script>
+    let x=5;
+    let n="<br>";
+    function write(st){
+      document.write("<a>"+st+"&nbsp;</a>");
+    }
+    function writeln(st){
+     document.write("<a>"+st+"</a>");
+     document.write(n);
+    }
+    var p=[];
+    fetch('https://yangzhengqi6.github.io/website/prechat.txt')
+    .then(response => response.text())
+    .then(text =>{
+      var s="";
+      var cnt=1;
+      var size=0;
+      var ss=[];
+      for(size;text[size]!=ss[1]&&size<=200;size++);
+      for(var i=0;i<=size-1;i++){
+          if(text[i]=='\n'){
+            continue;
+          }
+          else if(text[i]=='\r'){
+          if(cnt%2==0){
+            s+="</d>";
+            s+="<br>";
+          }else{
+            s+=":";
+            s+="<d>";
+          }
+          cnt++;
+        }else{
+          s+=text[i];
+        }
+      // writeln(s);
+      document.getElementById("content").innerHTML = s;
+      }
+    })
+    .catch(error => console.error('ERR:Server returned ', error));
+  </script>
+<br>
+  
+</body>
+</html>
